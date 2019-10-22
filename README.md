@@ -1,5 +1,5 @@
 # Une simple table de hashage <img alt="" src="https://img.shields.io/github/languages/code-size/outidrarine/Go-Game.svg">
-Ce repo contient une simple implementation d'une table de hashage, par hashage polynomial, avec les methodes, afficher, ajouter et supprimer.
+Ce repo contient une simple implementation d'une table de hashage, en utilisant une fonction de hashage polynomial, avec les methodes, afficher, ajouter et supprimer, implimenté en c++
 # Introduction
 Le but des tables de hachage est d'implémenter l'interface d'une table de symboles. Cette structure de données vous permet de stocker 
 efficacement des paires "clé-valeur".
