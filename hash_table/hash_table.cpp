@@ -4,7 +4,7 @@
 int main()
 {
 	int choice;
-	Hashage Hashy;
+	Hashage uneTable;
 	while (true)
 	{
 		cout << "\n choisissez : \n 1 - Ajouter \n 2 - Afficher \n 3 - Supprimer \n";
@@ -13,7 +13,7 @@ int main()
 		{
 			case 2:
 			{
-				Hashy.PrintTable();
+				uneTable.afficher();
 				break;
 			}
 			case 3:
@@ -21,7 +21,7 @@ int main()
 				cout << "\n donner un nom a supprimer : \n";
 				string nom;
 				cin >> nom;
-				Hashy.RemoveItem(nom);
+				uneTable.supprimer(nom);
 				break;
 			}
 			case 1:
@@ -29,7 +29,7 @@ int main()
 				cout << "\n donner un nom : \n";
 				string nom;
 				cin >> nom;
-				Hashy.AddItem(nom);
+				uneTable.ajouter(nom);
 				break;
 			}
 

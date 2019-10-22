@@ -24,16 +24,14 @@ public:
 
 	int  Hash(string key);
 
-	void AddItem(string data);
+	void ajouter(string data);
 
-	int NumberOfItemsInIndex(int index);
+	int numeroDesNoeuds(int index);
 
-	void PrintTable();
+	void afficher();
 
-	void PrintItemsInIndex(int index);
+	void afficherNoeuds(int index);
 
-	void FindDrink(string info);
-
-	void RemoveItem(string info);
+	void supprimer(string info);
 
 };

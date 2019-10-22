@@ -12,7 +12,7 @@ Hashage::Hashage()
 	}
 }
 
-void Hashage::AddItem(string data)
+void Hashage::ajouter(string data)
 {
 
 	int index = Hash(data);
@@ -35,7 +35,7 @@ void Hashage::AddItem(string data)
 		Ptr->next = n;
 	}
 }
-int Hashage::NumberOfItemsInIndex(int index)
+int Hashage::numeroDesNoeuds(int index)
 {
 	int count = 0;
 
@@ -55,35 +55,35 @@ int Hashage::NumberOfItemsInIndex(int index)
 	}
 	return count;
 }
-void Hashage::PrintTable()
+void Hashage::afficher()
 {
 	int number;
 	for (int i = 0; i < tableSize; i++)
 	{
-		number = NumberOfItemsInIndex(i);
+		number = numeroDesNoeuds(i);
 		cout << "------------------------" << endl;
-		cout << "index =" << i << endl;
+		cout << "indice =" << i << endl;
 		cout << HashTable[i]->data << endl;
-		cout << "number of items = " << number << endl;
+		cout << "numero des noeuds = " << number << endl;
 		if (number > 1)
 		{
-			PrintItemsInIndex(i);
+			afficherNoeuds(i);
 		}
 		cout << "------------------------" << endl;
 	}
-	cout << "number of collisions: " << collisions << endl;
+	cout << "numero des collisions: " << collisions << endl;
 }
-void Hashage::PrintItemsInIndex(int index)
+void Hashage::afficherNoeuds(int index)
 {
 	item* Ptr = HashTable[index];
 
 	if (Ptr->data == "empty")
 	{
-		cout << "index = " << index << "is empty" << endl;
+		cout << "index = " << index << "est vide" << endl;
 	}
 	else
 	{
-		cout << "index = " << index << "contains following items: " << endl;
+		cout << "indice = " << index << "contient les noeuds suivants: " << endl;
 
 		while (Ptr != NULL)
 		{
@@ -95,7 +95,7 @@ void Hashage::PrintItemsInIndex(int index)
 
 	}
 }
-void Hashage::RemoveItem(string name)
+void Hashage::supprimer(string name)
 {
 	int index = Hash(name);
 
@@ -106,13 +106,13 @@ void Hashage::RemoveItem(string name)
 	//Case 0 - bucket is empty
 	if (HashTable[index]->data == "empty")
 	{
-		cout << name << " was not found to delete" << endl;
+		//cout << name << " non trouve" << endl;
 	}
 	//Case 1 - only one item is contained on the bucket and this item has matching name
 	else if (HashTable[index]->data == name && HashTable[index]->next == NULL)
 	{
 		HashTable[index]->data == "empty";
-		cout << name << " was deleted" << endl;
+		//cout << name << " was deleted" << endl;
 	}
 	//Case 2 - match is located in the first item in the bucket but there are more items in the bucket
 	else if (HashTable[index]->data == name)
@@ -120,7 +120,7 @@ void Hashage::RemoveItem(string name)
 		delPtr = HashTable[index];
 		HashTable[index] = HashTable[index]->next;
 		delete delPtr;
-		cout << name << " was deleted" << endl;
+		//cout << name << " element supprime" << endl;
 		collisions--;
 	}
 	//Case 3 - bucket contains items but the first item is not a match
@@ -135,7 +135,7 @@ void Hashage::RemoveItem(string name)
 		}
 		if (P1 == NULL)
 		{
-			cout << name << " was not found to delete" << endl;
+			//cout << name << " non trouve" << endl;
 		}
 		else
 		{
@@ -143,7 +143,7 @@ void Hashage::RemoveItem(string name)
 			P1 = P1->next;
 			//P2->next = P1;
 			delete delPtr;
-			cout << name << " was deleted" << endl;
+			cout << name << " supprime " << endl;
 			collisions--;
 		}
 
