@@ -7,10 +7,18 @@ int main()
 	Hashage uneTable;
 	while (true)
 	{
-		cout << "\n choisissez : \n 1 - Ajouter \n 2 - Afficher \n 3 - Supprimer \n";
+		cout << "\n choisissez : \n 1 - Ajouter \n 2 - Afficher \n 3 - Supprimer\n 4 - existance test \n";
 		cin >> choice;
 		switch (choice)
 		{
+			case 4:
+			{
+				cout << "\n donner un nom a chercher : \n";
+				string nom;
+				cin >> nom;
+				cout<<uneTable.existe(nom);
+				break;
+			}
 			case 2:
 			{
 				uneTable.afficher();
@@ -21,7 +29,7 @@ int main()
 				cout << "\n donner un nom a supprimer : \n";
 				string nom;
 				cin >> nom;
-				uneTable.supprimer(nom);
+				cout<<uneTable.supprimer(nom);
 				break;
 			}
 			case 1:
