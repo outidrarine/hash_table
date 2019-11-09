@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Hash.h"
+#include <math.h>
 using namespace std;
 Hashage::Hashage()
 {
@@ -150,13 +151,14 @@ bool Hashage::supprimer(string name)
 	}
 }
 
-int Hashage::Hash(string key)
+int Hashage::Hash(string key) // hashage par la méthode polynomiale et compression par methode de la division
 {
 	int hash1 = 0;
 	int index;
+	int coef = 42;
 	for (int i = 0; i < key.length(); i++)
 	{
-		hash1 = hash1 + (int)key[i];
+		hash1 = hash1 + ((int)key[i])*(pow(coef,i)); 
 	}
 	index = hash1 % TABLESIZE;
 	return index;
